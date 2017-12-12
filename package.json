@@ -1,0 +1,11 @@
+{
+  "name": "advent-of-code-2017",
+  "version": "1.0.0",
+  "description": "Advent of Code 2017",
+  "author": "Patrick McCarthy",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^8.0.58"
+  }
+}
