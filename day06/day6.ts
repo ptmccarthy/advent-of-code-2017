@@ -3,7 +3,6 @@ import path = require('path');
 
 const input = fs.readFileSync(path.join(__dirname, './input.txt'), 'utf8').trim().split('\t');
 const memory = input.map(n => parseInt(n, 10));
-const configurations = [];
 
 const redistribute = (memory: number[]): number[] => {
   const config = memory.slice();
@@ -35,22 +34,30 @@ const findMaxIndex = (array: number[]) => {
   return maxIndex;
 };
 
-const solvePart1 = (memory): number => {
+const redistributeLoop = (memory, inclusive = true) => {
   let mem = memory;
   let cycles = 0;
+  const configurations = [];
 
   while (1) {
     cycles++;
     mem = redistribute(mem);
 
-    if (configurations.find(c => c === mem.toString())) {
+    if (configurations.find(c => c === mem.toString())) {      
+      configurations.push(mem.toString());
       break;
     } else {
       configurations.push(mem.toString());
     }
   }
 
-  return cycles;
+  // if counting the size of the loop, don't include the last cycle in the count
+  if (!inclusive) { cycles--; }
+  return { cycles, mem };
 };
 
-console.log(`Part 1: ${solvePart1(memory)} cycles`);
+const part1 = redistributeLoop(memory, true);
+console.log(`Part 1: ${part1.cycles} cycles`);
+
+const part2 = redistributeLoop(part1.mem, false);
+console.log(`Part 2: ${part2.cycles} cycles`);
