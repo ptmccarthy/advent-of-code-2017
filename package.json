@@ -5,10 +5,10 @@
   "author": "Patrick McCarthy",
   "license": "MIT",
   "dependencies": {
-    "@types/lodash": "^4.14.88",
-    "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "@types/node": "^8.0.58"
+    "@types/lodash": "^4.14.91",
+    "@types/node": "^8.5.2",
+    "lodash": "^4.17.4",
+    "ts-node": "^4.0.2",
+    "typescript": "^2.6.2"
   }
 }
