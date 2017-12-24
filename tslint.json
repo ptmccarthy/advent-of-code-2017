@@ -1,6 +1,8 @@
 {
   "extends": "tslint-config-airbnb",
   "rules": {
-    "no-increment-decrement": false
-}
+    "max-line-length": 120,
+    "no-increment-decrement": false,
+    "no-else-after-return": false
+  }
 }
